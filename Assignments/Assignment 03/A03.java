@@ -15,8 +15,8 @@ public class A03 {
         };              
 
         // Test countOf
-        System.out.println(countOf(78, june)); // expect 2
-        System.out.println(countOf(-78, june)); // expect 0
+        System.out.println(countOf(june, 78)); // expect 2
+        System.out.println(countOf(june, -78)); // expect 0
 
         // Test find max/min
         System.out.println(findMax(july)); // expect 90
@@ -27,6 +27,8 @@ public class A03 {
         System.out.println(isPresent(90, july)); // expect true
     } // method main
 
+
+
     /**
      * Counts how many times a specified value appears in a given array.
      * 
@@ -36,8 +38,15 @@ public class A03 {
      */
     public static int countOf(int[] array, int target) {
         int count = 0;
+        for (int value : array) {
+            if (value == target) {
+                count++;
+            }
+        }
         return count;
     } // method countOf
+
+
 
     /**
      * Returns the max value in an array
@@ -46,8 +55,15 @@ public class A03 {
      */
     public static int findMax(int[] array) {
         int max = array[0];
+        for(int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
         return max;
     } // method findMax
+
+
 
     /**
      * Returns the min value in an array
@@ -56,8 +72,15 @@ public class A03 {
      */
     public static int findMin(int[] array) {
         int min = array[0];
+        for(int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
         return min;
     } // method findMin
+
+
 
     /**
      * Determines if a specified value exists in a give array
@@ -67,8 +90,15 @@ public class A03 {
      */
     public static boolean isPresent(int target, int[] array) {
         boolean found = false;
+        for (int value : array) {
+            if (value == target) {
+                return true;
+            }
+        }
         return found;
     } // method contains
+
+
 
     /**
      * Determines if two arrays have at least one common value.
